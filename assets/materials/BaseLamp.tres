@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3th8ga45prna"]
+
+[resource]
+resource_name = "Lamp.003"
+albedo_color = Color(0.48746508, 0.38545415, 0.14709401, 1)
+metallic = 0.51
+roughness = 0.4
+detail_enabled = true
+detail_blend_mode = 3
