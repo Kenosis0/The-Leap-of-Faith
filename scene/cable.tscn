@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jao7e2my2iac"]
+
+[ext_resource type="Script" uid="uid://cqkhnbtuqf6uf" path="res://test.gd" id="1_7ximw"]
+[ext_resource type="Shader" uid="uid://cwny623d1lcpo" path="res://assets/materials/cable_mat.tres" id="2_nttqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uqi0"]
+render_priority = 0
+shader = ExtResource("2_nttqf")
+shader_parameter/albedo = Color(0.1, 0.9, 0.2, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1773936574 node_paths=PackedStringArray("a", "b")]
+script = ExtResource("1_7ximw")
+a = NodePath("")
+b = NodePath("")
+cable_length = 3.54
+gravity = Vector3(0, -13.394, 0)
+iters = 18
+floor_y = 0.355
+material = SubResource("ShaderMaterial_6uqi0")

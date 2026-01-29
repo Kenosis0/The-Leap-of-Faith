@@ -1,0 +1,71 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://dpcng6j8ah6gt"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_px34d"]
+animation = &"AwakeIdle_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_py3sl"]
+animation = &"Stretch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uaveu"]
+animation = &"AwakeIdle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4v2mr"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_pxuc4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ksh22"]
+graph_offset = Vector2(55, 44)
+nodes/output/position = Vector2(1200, 180)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_uaveu")
+nodes/Animation/position = Vector2(320, 120)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_pxuc4")
+nodes/OneShot/position = Vector2(546.1095, 197.65358)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_px34d")
+"nodes/Animation 2/position" = Vector2(320, 320)
+"nodes/OneShot 2/node" = SubResource("AnimationNodeOneShot_4v2mr")
+"nodes/OneShot 2/position" = Vector2(827.2168, 284.0355)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_py3sl")
+"nodes/Animation 3/position" = Vector2(540, 500)
+node_connections = [&"output", 0, &"OneShot 2", &"OneShot", 0, &"Animation", &"OneShot", 1, &"Animation 2", &"OneShot 2", 0, &"OneShot", &"OneShot 2", 1, &"Animation 3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h73im"]
+animation = &"WakeUp"
+advance_on_start = true
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xmebc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgsxc"]
+animation = &"SleepIdle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ee36l"]
+graph_offset = Vector2(-358.41092, -16.430786)
+nodes/output/position = Vector2(620, 20)
+nodes/Sleeping/node = SubResource("AnimationNodeAnimation_pgsxc")
+nodes/Sleeping/position = Vector2(-240, 60)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_xmebc")
+nodes/OneShot/position = Vector2(40, 100)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_h73im")
+nodes/Animation/position = Vector2(-240, 240)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Sleeping", &"OneShot", 1, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_63ej6"]
+advance_mode = 2
+advance_condition = &"sleep"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3m1it"]
+advance_mode = 2
+advance_condition = &"awake"
+
+[resource]
+states/Awake/node = SubResource("AnimationNodeBlendTree_ksh22")
+states/Awake/position = Vector2(335.5, 159.5)
+states/Sleeping/node = SubResource("AnimationNodeBlendTree_ee36l")
+states/Sleeping/position = Vector2(162, 163.5)
+states/Start/position = Vector2(162, 47)
+transitions = ["Start", "Sleeping", SubResource("AnimationNodeStateMachineTransition_63ej6"), "Sleeping", "Awake", SubResource("AnimationNodeStateMachineTransition_3m1it")]
+graph_offset = Vector2(-191, -12)

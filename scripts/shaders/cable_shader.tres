@@ -1,0 +1,29 @@
+[gd_resource type="Shader" format=3 uid="uid://doa4uyf1u44ke"]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled;
+
+uniform vec4 albedo : source_color = vec4(0.1, 0.9, 0.2, 1.0);
+
+void vertex() {
+    vec4 clip = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+
+    vec2 ndc = clip.xy / clip.w;
+
+    vec2 vp = VIEWPORT_SIZE;
+    vec2 px = (ndc * 0.5 + 0.5) * vp;
+
+    px = floor(px + 0.5);
+
+    ndc = (px / vp) * 2.0 - 1.0;
+
+    clip.xy = ndc * clip.w;
+    POSITION = clip;
+}
+
+void fragment() {
+    ALBEDO = albedo.rgb;
+    ALPHA = albedo.a;
+}
+"

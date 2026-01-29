@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cwny623d1lcpo"]
+
+[ext_resource type="Shader" uid="uid://doa4uyf1u44ke" path="res://scripts/shaders/cable_shader.tres" id="1_fev1w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fev1w")
+shader_parameter/albedo = Color(0.13319641, 0.13319641, 0.13319638, 1)
