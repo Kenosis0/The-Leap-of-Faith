@@ -6,7 +6,7 @@
 
 ## 🎥 Watch the Animation
 
-<video src="recordings/The Leap of Faith.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/7f637e63-c729-472d-9586-5a1a69378444
 
 > *Experience Lumen's journey in full — from awakening to his daring leap of faith.*
 
