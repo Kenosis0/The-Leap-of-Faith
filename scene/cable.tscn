@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jao7e2my2iac"]
 
-[ext_resource type="Script" uid="uid://cqkhnbtuqf6uf" path="res://test.gd" id="1_7ximw"]
+[ext_resource type="Script" uid="uid://ct6u0iqj4p4eb" path="res://scripts/cable.gd" id="1_7ximw"]
 [ext_resource type="Shader" uid="uid://cwny623d1lcpo" path="res://assets/materials/cable_mat.tres" id="2_nttqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6uqi0"]

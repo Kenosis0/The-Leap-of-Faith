@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1610wfmwnsj" path="res://scene/glass_jar.tscn" id="13_8inyt"]
 [ext_resource type="PackedScene" uid="uid://jao7e2my2iac" path="res://scene/cable.tscn" id="14_6e7jr"]
 [ext_resource type="Script" uid="uid://v4ylkrs2enyi" path="res://scripts/main_camera/main_camera.gd" id="16_4cqoh"]
+[ext_resource type="Script" uid="uid://dh85tgalohv4k" path="res://scene/jump_camera.gd" id="18_8inyt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g1pi"]
 resource_name = "Metal2"
@@ -719,6 +720,59 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="Animation" id="Animation_8inyt"]
+resource_name = "ChangeScene"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCamera:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("JumpCamera:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="Animation" id="Animation_4cqoh"]
 length = 0.001
 tracks/0/type = "value"
@@ -733,9 +787,57 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCamera:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("JumpCamera:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pi6ld"]
-resource_name = "test"
+resource_name = "Start"
 length = 25.0
 step = 0.1
 tracks/0/type = "value"
@@ -757,7 +859,7 @@ tracks/1/path = NodePath("MainCamera")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(18, 22.5),
+"times": PackedFloat32Array(18.5, 22.8),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -767,11 +869,88 @@ tracks/1/keys = {
 "method": &"change_target"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_jump"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8inyt"]
 _data = {
+&"ChangeScene": SubResource("Animation_8inyt"),
 &"RESET": SubResource("Animation_4cqoh"),
-&"test": SubResource("Animation_pi6ld")
+&"Start": SubResource("Animation_pi6ld")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8inyt"]
+bg_color = Color(0.7413847, 0.7413847, 0.7413844, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.0030813396, 0, 0.1540029, 1)
+border_blend = true
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l506t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nw6ib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8mcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvira"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4hwf"]
+
+[sub_resource type="Animation" id="Animation_dcrpu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(433, 511)]
+}
+
+[sub_resource type="Animation" id="Animation_3sgmn"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(433, 511), Vector2(433, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4mm3"]
+_data = {
+&"RESET": SubResource("Animation_dcrpu"),
+&"idle": SubResource("Animation_3sgmn")
 }
 
 [node name="MainScene" type="Node3D" unique_id=1531147177]
@@ -977,127 +1156,124 @@ shape = SubResource("ConcavePolygonShape3D_pi6ld")
 [node name="GlassJar" parent="." unique_id=940010723 instance=ExtResource("13_8inyt")]
 transform = Transform3D(0.10312634, 0, 1.1955606, 0, 1.2, 0, -1.1955606, 0, 0.10312634, -2.1414323, 0.6016223, -1.4022573)
 
-[node name="Node3D" parent="GlassJar" index="2" unique_id=333011528]
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 0, -0.061787486, 0)
-
 [node name="Lumen" type="Node3D" parent="." unique_id=767863321]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7947183, 0.613, 0.980421)
 
-[node name="PIXAR LAmp2" parent="Lumen" unique_id=2126255925 instance=ExtResource("11_cj0ow")]
+[node name="Lamp" parent="Lumen" unique_id=2126255925 instance=ExtResource("11_cj0ow")]
 transform = Transform3D(-1, 0, 3.2584137e-07, 0, 1, 0, -3.2584137e-07, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Lumen/PIXAR LAmp2/Armature" parent_id_path=PackedInt32Array(2126255925, 1068707019) index="0" unique_id=141102638]
-bones/1/position = Vector3(-1.8734838e-08, 0.023512352, 0.18935479)
-bones/1/rotation = Quaternion(0.5066886, -0.4932207, -0.5066887, 0.49322063)
-bones/3/rotation = Quaternion(7.672517e-08, -1.1349202e-08, 0.5040039, 0.86370146)
-bones/4/rotation = Quaternion(-1.1316593e-07, -7.982517e-08, -0.80869085, 0.58823407)
-bones/5/rotation = Quaternion(7.718926e-08, 1.18405495e-07, 0.6569986, 0.75389177)
-bones/6/rotation = Quaternion(-2.0257514e-07, -1.133602e-07, 0.87865835, -0.47745115)
-bones/6/scale = Vector3(1.033498, 0.93622655, 1.0334982)
-bones/7/rotation = Quaternion(-4.072728e-07, -2.361634e-07, 0.87865835, -0.47745115)
-bones/7/scale = Vector3(1.033498, 0.9362265, 1.0334982)
-bones/10/rotation = Quaternion(-2.5759977e-08, -1.4922328e-08, 0.9077032, -0.41961288)
-bones/10/scale = Vector3(0.9917078, 1.0168066, 0.99170774)
-bones/11/rotation = Quaternion(-2.4171567e-07, -1.1475426e-07, 0.90770316, -0.41961285)
-bones/11/scale = Vector3(0.9917078, 1.016807, 0.9917076)
-bones/12/rotation = Quaternion(2.5611424e-08, 6.069184e-08, -0.41760185, 0.90863013)
-bones/13/rotation = Quaternion(7.018568e-08, -7.0313493e-09, 0.75556105, 0.6550783)
-bones/14/rotation = Quaternion(-4.3502208e-08, 8.1609436e-08, -0.11222044, 0.9936834)
-bones/15/rotation = Quaternion(-8.369863e-09, -3.4773304e-08, 0.7591497, 0.6509162)
-bones/16/rotation = Quaternion(7.013863e-08, -1.729723e-08, 0.9278935, -0.3728454)
+[node name="Skeleton3D" parent="Lumen/Lamp/Armature" parent_id_path=PackedInt32Array(2126255925, 1068707019) index="0" unique_id=141102638]
+bones/1/position = Vector3(-1.8734838e-08, 0.023512352, 0.18066722)
+bones/1/rotation = Quaternion(0.52497345, -0.4737119, -0.52497345, 0.47371185)
+bones/3/rotation = Quaternion(8.099634e-08, -1.3573484e-08, 0.51931036, 0.85458577)
+bones/4/rotation = Quaternion(-1.0833179e-07, -8.62717e-08, -0.8415332, 0.54020554)
+bones/5/rotation = Quaternion(8.507496e-08, 1.1287291e-07, 0.70682263, 0.70739084)
+bones/6/rotation = Quaternion(-1.9968252e-07, -1.1841547e-07, 0.8829695, -0.46943033)
+bones/6/scale = Vector3(1.024972, 0.95186794, 1.0249721)
+bones/7/rotation = Quaternion(-4.0454353e-07, -2.4092546e-07, 0.88296384, -0.469441)
+bones/7/scale = Vector3(1.0249721, 0.95186794, 1.024972)
+bones/10/rotation = Quaternion(-3.575544e-08, 1.4379719e-08, 0.93828255, -0.34587002)
+bones/10/scale = Vector3(0.9586747, 1.0881021, 0.9586748)
+bones/11/rotation = Quaternion(-2.5898623e-07, -6.790791e-08, 0.93828243, -0.34587014)
+bones/11/scale = Vector3(0.95867485, 1.0881025, 0.95867467)
+bones/12/rotation = Quaternion(4.1021917e-08, 8.258502e-08, -0.46091372, 0.88744503)
+bones/13/rotation = Quaternion(6.96191e-08, -1.1342479e-08, 0.794488, 0.60727984)
+bones/14/rotation = Quaternion(-4.2330754e-08, 8.222315e-08, -0.09799938, 0.9951865)
+bones/15/rotation = Quaternion(-7.850959e-09, -3.4894107e-08, 0.7493695, 0.6621521)
+bones/16/rotation = Quaternion(8.492346e-08, -3.6092512e-08, 0.94558716, -0.32536915)
 
-[node name="Bone_003" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="0" unique_id=791472062]
-transform = Transform3D(0.8217781, -0.56980747, 9.159663e-08, 0.5698077, 0.82177794, -1.1693594e-07, -8.641095e-09, 1.4828792e-07, 1, 0.019371048, 0.12755191, 9.427117e-09)
+[node name="Bone_003" parent="Lumen/Lamp/Armature/Skeleton3D" index="0" unique_id=791472062]
+transform = Transform3D(0.78885645, -0.6145774, 7.234779e-08, 0.61457753, 0.7888563, -1.4922425e-07, 3.4637843e-08, 1.6217984e-07, 1, 0.02274087, 0.12128489, 1.1394805e-08)
 
-[node name="Plane_005" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_003" index="0" unique_id=759813385]
+[node name="Plane_005" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_003" index="0" unique_id=759813385]
 surface_material_override/0 = null
 
-[node name="Sphere_0045" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_003/Plane_005" index="0" unique_id=2096951123]
+[node name="Sphere_0045" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_003/Plane_005" index="0" unique_id=2096951123]
 surface_material_override/0 = null
 
-[node name="Sphere_008" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_003/Plane_005" index="1" unique_id=418762921]
+[node name="Sphere_008" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_003/Plane_005" index="1" unique_id=418762921]
 surface_material_override/0 = null
 
-[node name="Bone_002" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="1" unique_id=1724469861]
-transform = Transform3D(0.6767997, 0.7361671, -1.2673533e-07, -0.73616695, 0.6767999, 6.262826e-08, 1.3187929e-07, 5.0911616e-08, 1, -0.038835566, 0.074039295, 5.4016835e-09)
+[node name="Bone_002" parent="Lumen/Lamp/Armature/Skeleton3D" index="1" unique_id=1724469861]
+transform = Transform3D(0.6152111, 0.7883623, -1.3078808e-07, -0.78836226, 0.6152112, 4.7366626e-08, 1.1780436e-07, 7.3967925e-08, 1, -0.039592672, 0.07264191, 5.5463762e-09)
 
-[node name="Plane_021__ccccct" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_002" index="0" unique_id=1380828355]
+[node name="Plane_021__ccccct" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_002" index="0" unique_id=1380828355]
 surface_material_override/0 = null
 
-[node name="Bone_001" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="2" unique_id=523072082]
-transform = Transform3D(0.4919603, -0.8706177, 5.7734916e-08, 0.87061775, 0.4919602, -1.4397534e-07, 9.694421e-08, 1.210952e-07, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
+[node name="Bone_001" parent="Lumen/Lamp/Armature/Skeleton3D" index="2" unique_id=523072082]
+transform = Transform3D(0.46063358, -0.88759047, 6.092506e-08, 0.8875905, 0.4606335, -1.5253433e-07, 1.073239e-07, 1.2433892e-07, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
 
-[node name="Plane_0015" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_001" index="0" unique_id=2058840753]
+[node name="Plane_0015" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_001" index="0" unique_id=2058840753]
 surface_material_override/0 = null
 
-[node name="Sphere_002" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_001/Plane_0015" index="0" unique_id=215201655]
+[node name="Sphere_002" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_001/Plane_0015" index="0" unique_id=215201655]
 surface_material_override/0 = null
 
-[node name="Sphere_006" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_001/Plane_0015" index="1" unique_id=400660508]
+[node name="Sphere_006" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_001/Plane_0015" index="1" unique_id=400660508]
 surface_material_override/0 = null
 
-[node name="IK target_001" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="3" unique_id=1746028866]
-transform = Transform3D(0.99963725, 0.026933998, -1.1758843e-09, -0.026934147, 0.99963707, -4.3694484e-08, -1.3926638e-12, 4.3710315e-08, 1, -0.02447295, 0.22892866, 3.1781383e-08)
+[node name="IK target_001" parent="Lumen/Lamp/Armature/Skeleton3D" index="3" unique_id=1746028866]
+transform = Transform3D(0.99474084, 0.10242462, -4.4545487e-09, -0.1024248, 0.9947406, -4.3473435e-08, -2.1643132e-11, 4.370108e-08, 1, -0.025485508, 0.22014897, 3.8649887e-08)
 
-[node name="Cylinder_010" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/IK target_001" index="0" unique_id=1164976364]
+[node name="Cylinder_010" parent="Lumen/Lamp/Armature/Skeleton3D/IK target_001" index="0" unique_id=1164976364]
 surface_material_override/0 = null
 
-[node name="Cylinder_002" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/IK target_001/Cylinder_010" index="0" unique_id=332802483]
+[node name="Cylinder_002" parent="Lumen/Lamp/Armature/Skeleton3D/IK target_001/Cylinder_010" index="0" unique_id=332802483]
 surface_material_override/0 = null
 
-[node name="SpotLight3D" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/IK target_001/Cylinder_010/Sphere_001" parent_id_path=PackedInt32Array(2126255925, 1012174394) index="1" unique_id=984360952]
+[node name="SpotLight3D" parent="Lumen/Lamp/Armature/Skeleton3D/IK target_001/Cylinder_010/Sphere_001" parent_id_path=PackedInt32Array(2126255925, 1012174394) index="1" unique_id=984360952]
 light_energy = 1.0
 
-[node name="Bone_007" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="4" unique_id=1461945621]
-transform = Transform3D(-0.70307446, -0.7111162, 1.1377226e-07, 0.71111625, -0.7030743, -1.3122396e-07, 1.7330586e-07, -1.1354942e-08, 1, 0.0035796948, 0.21618313, -0.0017413783)
+[node name="Bone_007" parent="Lumen/Lamp/Armature/Skeleton3D" index="4" unique_id=1461945621]
+transform = Transform3D(-0.72109926, -0.69283175, 1.1929107e-07, 0.69283175, -0.721099, -1.8038826e-07, 2.1099943e-07, -4.742922e-08, 1, 0.002885107, 0.20812783, -0.0017413722)
 
-[node name="Plane_0068" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_007" index="0" unique_id=2126021228]
+[node name="Plane_0068" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_007" index="0" unique_id=2126021228]
 surface_material_override/0 = null
 
-[node name="Sphere_009" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_007/Plane_0068" index="0" unique_id=1304407287]
+[node name="Sphere_009" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_007/Plane_0068" index="0" unique_id=1304407287]
 surface_material_override/0 = null
 
-[node name="Sphere_010" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_007/Plane_0068" index="1" unique_id=609063852]
+[node name="Sphere_010" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_007/Plane_0068" index="1" unique_id=609063852]
 surface_material_override/0 = null
 
-[node name="Sphere_033" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_007/Plane_0068" index="2" unique_id=886055602]
+[node name="Sphere_033" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_007/Plane_0068" index="2" unique_id=886055602]
 surface_material_override/0 = null
 
-[node name="Bone_006" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="5" unique_id=1194297156]
-transform = Transform3D(0.8100865, -0.58631045, 1.3617213e-07, 0.5863104, 0.8100864, -6.328875e-08, -7.3204326e-08, 1.3110852e-07, 1, 0.047686137, 0.15524267, -0.0017413882)
+[node name="Bone_006" parent="Lumen/Lamp/Armature/Skeleton3D" index="5" unique_id=1194297156]
+transform = Transform3D(0.7763354, -0.63031983, 1.3789017e-07, 0.6303198, 0.77633536, -1.11315714e-07, -3.6884487e-08, 1.7333323e-07, 1, 0.050302245, 0.14972636, -0.0017413852)
 
-[node name="Plane_004" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_006" index="0" unique_id=872425787]
+[node name="Plane_004" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_006" index="0" unique_id=872425787]
 surface_material_override/0 = null
 
-[node name="Sphere_005" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_006/Plane_004" index="0" unique_id=280912233]
+[node name="Sphere_005" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_006/Plane_004" index="0" unique_id=280912233]
 surface_material_override/0 = null
 
-[node name="Bone_005" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="6" unique_id=2057806019]
-transform = Transform3D(0.6589222, -0.7522112, 7.4123875e-08, 0.75221115, 0.65892214, -2.3753049e-07, 1.2983124e-07, 2.1227092e-07, 1, 0.05329951, 0.097831674, -2.9128758e-10)
+[node name="Bone_005" parent="Lumen/Lamp/Armature/Skeleton3D" index="6" unique_id=2057806019]
+transform = Transform3D(0.6384766, -0.7696412, 8.054523e-08, 0.76964116, 0.63847655, -2.871614e-07, 1.6958504e-07, 2.4533676e-07, 1, 0.057455905, 0.092486896, -2.3315622e-10)
 
-[node name="Plane_0033" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_005" index="0" unique_id=518905]
+[node name="Plane_0033" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_005" index="0" unique_id=518905]
 surface_material_override/0 = null
 
-[node name="Bone_004" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D" index="7" unique_id=1025984871]
-transform = Transform3D(0.65121734, 0.7588913, 8.890211e-08, -0.7588912, 0.6512173, -9.7232665e-08, -1.3168362e-07, -4.1474237e-09, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
+[node name="Bone_004" parent="Lumen/Lamp/Armature/Skeleton3D" index="7" unique_id=1025984871]
+transform = Transform3D(0.5751171, 0.81807107, 1.0876418e-07, -0.818071, 0.57511705, -1.489385e-07, -1.8439444e-07, -3.319741e-09, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
 
-[node name="Plane_002" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_004" index="0" unique_id=889525070]
+[node name="Plane_002" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_004" index="0" unique_id=889525070]
 surface_material_override/0 = null
 
-[node name="Sphere_003" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_004/Plane_002" index="0" unique_id=1745528704]
+[node name="Sphere_003" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_004/Plane_002" index="0" unique_id=1745528704]
 surface_material_override/0 = null
 
-[node name="Sphere_007" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone_004/Plane_002" index="1" unique_id=200556638]
+[node name="Sphere_007" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_004/Plane_002" index="1" unique_id=200556638]
 surface_material_override/0 = null
 
-[node name="Cylinder_011" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(2126255925, 1212175337) index="0" unique_id=544727528]
+[node name="Cylinder_011" parent="Lumen/Lamp/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(2126255925, 1212175337) index="0" unique_id=544727528]
 surface_material_override/0 = null
 
-[node name="CableHost" type="Marker3D" parent="Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(2126255925, 1212175337) index="2" unique_id=966197293]
+[node name="Plate" parent="Lumen/Lamp/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(2126255925, 1212175337) index="1" unique_id=476189662]
+surface_material_override/0 = null
+
+[node name="CableHost" type="Marker3D" parent="Lumen/Lamp/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(2126255925, 1212175337) index="2" unique_id=966197293]
 transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1.0000001, 0, 3.2584137e-07, 0, -1, 0.102, 0.007000029, -5.9604645e-08)
-
-[node name="AnimationTree" parent="Lumen/PIXAR LAmp2" index="2" unique_id=1274268659]
-parameters/WakingUp/blend_amount = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1111031397]
 transform = Transform3D(0.8733336, -0.1555137, 0.4616319, 0.009245466, 0.95279175, 0.3034838, -0.48703495, -0.26077458, 0.8335428, -1.8387431, 1.3205497, 1.9152681)
@@ -1126,7 +1302,7 @@ radial_accel_max = 18.18
 scale_amount_min = 0.2
 
 [node name="Cable" parent="." unique_id=1773936574 node_paths=PackedStringArray("a", "b") instance=ExtResource("14_6e7jr")]
-a = NodePath("../Lumen/PIXAR LAmp2/Armature/Skeleton3D/Bone/CableHost")
+a = NodePath("../Lumen/Lamp/Armature/Skeleton3D/Bone/CableHost")
 b = NodePath("../Socket/CableSocket")
 cable_length = 0.4
 segments = 50
@@ -1144,7 +1320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014999628, 0, 0)
 mesh = SubResource("BoxMesh_l506t")
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1191414313 node_paths=PackedStringArray("target", "path")]
-transform = Transform3D(-0.99665225, -0.024938831, 0.077862486, 1.8626451e-09, 0.95234305, 0.30502912, -0.08175887, 0.30400792, -0.94915485, -2.6722412, 1.3928078, -0.51259035)
+transform = Transform3D(-0.99665225, -0.02493883, 0.07786247, -4.656613e-09, 0.95234305, 0.30502906, -0.08175886, 0.30400786, -0.94915485, -2.6722412, 1.3928078, -0.51259035)
 current = true
 fov = 60.0
 script = ExtResource("16_4cqoh")
@@ -1160,10 +1336,62 @@ path = NodePath("../CameraPath/Path1")
 curve = SubResource("Curve3D_4cqoh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CameraPath/Path1" unique_id=1668224997]
-transform = Transform3D(-0.4726936, 0.16894598, -0.86479354, 7.450057e-09, 0.9813562, 0.19172369, 0.88114697, 0.0906315, -0.46392074, -2.6722412, 1.3928078, -0.51259035)
+transform = Transform3D(-0.47269356, 0.16894591, -0.86479324, 7.4500566e-09, 0.9813558, 0.19172361, 0.8811469, 0.09063146, -0.46392056, -2.6722412, 1.3928078, -0.51259035)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1167335198]
 libraries/ = SubResource("AnimationLibrary_8inyt")
 
+[node name="JumpCamera" type="Camera3D" parent="." unique_id=237581996 node_paths=PackedStringArray("target")]
+transform = Transform3D(0.47553208, 0, 0.8796984, 0, 1, 0, -0.8796984, 0, 0.47553208, -1.7427235, 0.7944957, 0.40916145)
+fov = 60.0
+script = ExtResource("18_8inyt")
+target = NodePath("../Socket")
+offset = Vector3(-2.6, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=51829368]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1330672634]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1075891578]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -137.0
+offset_right = 143.0
+offset_bottom = -31.999573
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8inyt")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer" unique_id=1018250219]
+layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l506t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nw6ib")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f8mcn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rvira")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l4hwf")
+text = "Press [ SPACEBAR ] to Jump"
+autowrap_mode = 3
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PanelContainer" unique_id=177801482]
+libraries/ = SubResource("AnimationLibrary_m4mm3")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Button" to="." method="_on_button_pressed"]
+
 [editable path="GlassJar"]
-[editable path="Lumen/PIXAR LAmp2"]
+[editable path="Lumen/Lamp"]

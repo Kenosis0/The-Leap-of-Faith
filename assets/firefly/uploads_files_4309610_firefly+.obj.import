@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqj0syw3lllft"
+path="res://.godot/imported/uploads_files_4309610_firefly+.obj-ae587d8f9342ceda635f9825c4e8e7c8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/uploads_files_4309610_firefly+.obj-ae587d8f9342ceda635f9825c4e8e7c8.mesh"]
+
+source_file="res://assets/firefly/uploads_files_4309610_firefly+.obj"
+dest_files=["res://.godot/imported/uploads_files_4309610_firefly+.obj-ae587d8f9342ceda635f9825c4e8e7c8.mesh", "res://.godot/imported/uploads_files_4309610_firefly+.obj-ae587d8f9342ceda635f9825c4e8e7c8.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

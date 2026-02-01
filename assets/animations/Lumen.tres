@@ -1,5 +1,6 @@
 [gd_resource type="AnimationLibrary" format=3 uid="uid://cg6nkaaxhmwlg"]
 
+[ext_resource type="Animation" uid="uid://wm154c2cd1ds" path="res://assets/animations/JumpFail.res" id="1_4gfsf"]
 [ext_resource type="Animation" uid="uid://bfaek4p1v30gq" path="res://assets/animations/LookAlert.res" id="1_6e5h3"]
 [ext_resource type="Animation" uid="uid://bhx1xfotqcsjb" path="res://assets/animations/WakeUp.res" id="1_mhfl0"]
 [ext_resource type="Animation" uid="uid://cta5b23je6v5w" path="res://assets/animations/SleepIdle.res" id="2_53jpf"]
@@ -532,12 +533,37 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../JumpCamera:active")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../JumpCamera:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.7427235, 0.7944957, 0.40916145)]
+}
 
 [resource]
 _data = {
 &"AwakeIdle": SubResource("Animation_50e74"),
 &"AwakeIdle_001": SubResource("Animation_qy26u"),
 &"Idle": SubResource("Animation_a0wa5"),
+&"JumpFail": ExtResource("1_4gfsf"),
 &"LookAlert": ExtResource("1_6e5h3"),
 &"Move": ExtResource("2_a0wa5"),
 &"RESET": SubResource("Animation_53jpf"),

@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 
 @onready var omni_light: OmniLight3D = %OmniLight3D
@@ -22,6 +22,7 @@ extends Node3D
 @export_range(0.0, 1.0) var spot_energy_ratio: float = 1.0:
 	set = set_spot_ratio
 
+var ready_lamp: bool = false
 
 func set_omni_enery(value) -> void:
 	if omni_light == null:
@@ -79,7 +80,10 @@ func set_spot_ratio(value) -> void:
 
 
 func _ready() -> void:
+	initialize_anim_tree()
+	
 	anim_tree.active = true
+	ready_lamp = true
 	
 	await get_tree().create_timer(3).timeout
 	
@@ -92,6 +96,27 @@ func _ready() -> void:
 	anim_tree.set("parameters/LookIdle/request", 1)
 
 
+func _process(delta: float) -> void:
+	#return
+	if ready_lamp:
+		#if GameManager:
+		if GameManager.can_jump == false:
+			return
+		
+		if Input.is_action_just_pressed("Jump"):
+			anim_tree.set("parameters/Jump/blend_amount", 1.0)
+			print("jumping!")
+
+
+# Safe initialization for animation tree to avoid weird behaviours on start up
+func initialize_anim_tree() -> void:
+	anim_tree.set("parameters/WakingUp/blend_amount", 0.0)
+	anim_tree.set("parameters/TimeScale/scale", 2.0)
+	anim_tree.set("parameters/LookAlert/add_amount", 0.0)
+	anim_tree.set("parameters/Move/blend_amount", 0.0)
+	anim_tree.set("parameters/StopLook/blend_amount", 0.0)
+	anim_tree.set("parameters/Idle/blend_amount", 0.0)
+	anim_tree.active
 
 
 func anim_state_finished(anim_name: String) -> void:
