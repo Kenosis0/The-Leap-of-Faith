@@ -4,6 +4,14 @@
 
 ---
 
+## 🎥 Watch the Animation
+
+https://github.com/user-attachments/assets/the-leap-of-faith.mp4
+
+> *Experience Lumen's journey in full — from awakening to his daring leap of faith.*
+
+---
+
 ## ✨ A Tale of Light, Hope, and the Reach for Freedom
 
 Deep within a dusty, abandoned basement, a lonely desk lamp named **Lumen** awakens. His light flickers to life, illuminating the forgotten corners of a decaying workshop. But something catches his eye—a faint, golden glow in the distance.
