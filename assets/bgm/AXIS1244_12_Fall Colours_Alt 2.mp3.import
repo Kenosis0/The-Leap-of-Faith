@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cr5cm46031sto"
+path="res://.godot/imported/AXIS1244_12_Fall Colours_Alt 2.mp3-12cdd4e344cfed8dc34abc4652c655d5.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/AXIS1244_12_Fall Colours_Alt 2.mp3"
+dest_files=["res://.godot/imported/AXIS1244_12_Fall Colours_Alt 2.mp3-12cdd4e344cfed8dc34abc4652c655d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

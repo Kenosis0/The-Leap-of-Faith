@@ -27,6 +27,10 @@ GameManager="*uid://y1t28dcvls6r"
 
 window/size/always_on_top=true
 
+[editor]
+
+movie_writer/movie_file="C:/Users/John/Documents/Projects/Commission101/the_spark_of_action-_interactive_storytelling/recordings/Lumen the Lamp.avi"
+
 [input]
 
 move_forward={

@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://jao7e2my2iac" path="res://scene/cable.tscn" id="14_6e7jr"]
 [ext_resource type="Script" uid="uid://v4ylkrs2enyi" path="res://scripts/main_camera/main_camera.gd" id="16_4cqoh"]
 [ext_resource type="Script" uid="uid://dh85tgalohv4k" path="res://scene/jump_camera.gd" id="18_8inyt"]
+[ext_resource type="AudioStream" uid="uid://o72cfjh2h2x8" path="res://assets/bgm/AXIS1244_41_Fall Colours_60.mp3" id="19_l506t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g1pi"]
 resource_name = "Metal2"
@@ -1163,27 +1164,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7947183, 0.613, 0.980421)
 transform = Transform3D(-1, 0, 3.2584137e-07, 0, 1, 0, -3.2584137e-07, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Lumen/Lamp/Armature" parent_id_path=PackedInt32Array(2126255925, 1068707019) index="0" unique_id=141102638]
-bones/1/position = Vector3(-1.8734838e-08, 0.023512352, 0.18066722)
-bones/1/rotation = Quaternion(0.52497345, -0.4737119, -0.52497345, 0.47371185)
-bones/3/rotation = Quaternion(8.099634e-08, -1.3573484e-08, 0.51931036, 0.85458577)
-bones/4/rotation = Quaternion(-1.0833179e-07, -8.62717e-08, -0.8415332, 0.54020554)
-bones/5/rotation = Quaternion(8.507496e-08, 1.1287291e-07, 0.70682263, 0.70739084)
-bones/6/rotation = Quaternion(-1.9968252e-07, -1.1841547e-07, 0.8829695, -0.46943033)
-bones/6/scale = Vector3(1.024972, 0.95186794, 1.0249721)
-bones/7/rotation = Quaternion(-4.0454353e-07, -2.4092546e-07, 0.88296384, -0.469441)
-bones/7/scale = Vector3(1.0249721, 0.95186794, 1.024972)
-bones/10/rotation = Quaternion(-3.575544e-08, 1.4379719e-08, 0.93828255, -0.34587002)
-bones/10/scale = Vector3(0.9586747, 1.0881021, 0.9586748)
-bones/11/rotation = Quaternion(-2.5898623e-07, -6.790791e-08, 0.93828243, -0.34587014)
-bones/11/scale = Vector3(0.95867485, 1.0881025, 0.95867467)
-bones/12/rotation = Quaternion(4.1021917e-08, 8.258502e-08, -0.46091372, 0.88744503)
-bones/13/rotation = Quaternion(6.96191e-08, -1.1342479e-08, 0.794488, 0.60727984)
-bones/14/rotation = Quaternion(-4.2330754e-08, 8.222315e-08, -0.09799938, 0.9951865)
-bones/15/rotation = Quaternion(-7.850959e-09, -3.4894107e-08, 0.7493695, 0.6621521)
-bones/16/rotation = Quaternion(8.492346e-08, -3.6092512e-08, 0.94558716, -0.32536915)
+bones/1/position = Vector3(-1.8734838e-08, 0.023512352, 0.17996965)
+bones/1/rotation = Quaternion(0.52556646, -0.4730538, -0.52556646, 0.4730538)
+bones/3/rotation = Quaternion(8.135666e-08, -1.3756059e-08, 0.52046216, 0.8538847)
+bones/4/rotation = Quaternion(-1.0794591e-07, -8.675404e-08, -0.84393436, 0.53644663)
+bones/5/rotation = Quaternion(8.5659195e-08, 1.1243019e-07, 0.7104817, 0.70371574)
+bones/6/rotation = Quaternion(-1.9926972e-07, -1.1915805e-07, 0.88330716, -0.46879476)
+bones/6/scale = Vector3(1.0243093, 0.9531008, 1.0243094)
+bones/7/rotation = Quaternion(-4.0471997e-07, -2.4056368e-07, 0.88330454, -0.46879974)
+bones/7/scale = Vector3(1.0243094, 0.95310086, 1.0243093)
+bones/10/rotation = Quaternion(-3.716512e-08, 1.792259e-08, 0.9402837, -0.3403918)
+bones/10/scale = Vector3(0.9561554, 1.093857, 0.9561554)
+bones/11/rotation = Quaternion(-2.6087207e-07, -6.3061734e-08, 0.94028366, -0.340392)
+bones/11/scale = Vector3(0.9561555, 1.0938575, 0.95615536)
+bones/12/rotation = Quaternion(4.2295554e-08, 8.453117e-08, -0.46422783, 0.88571584)
+bones/13/rotation = Quaternion(6.956532e-08, -1.1667707e-08, 0.7973174, 0.60356027)
+bones/14/rotation = Quaternion(-4.223651e-08, 8.227161e-08, -0.09685897, 0.9952982)
+bones/15/rotation = Quaternion(-7.809714e-09, -3.490336e-08, 0.7485863, 0.6630373)
+bones/16/rotation = Quaternion(8.529764e-08, -3.822888e-08, 0.94628197, -0.32334265)
 
 [node name="Bone_003" parent="Lumen/Lamp/Armature/Skeleton3D" index="0" unique_id=791472062]
-transform = Transform3D(0.78885645, -0.6145774, 7.234779e-08, 0.61457753, 0.7888563, -1.4922425e-07, 3.4637843e-08, 1.6217984e-07, 1, 0.02274087, 0.12128489, 1.1394805e-08)
+transform = Transform3D(0.7863004, -0.61784446, 7.085082e-08, 0.6178447, 0.78630024, -1.5172562e-07, 3.803286e-08, 1.6307675e-07, 1, 0.022987146, 0.12078914, 1.1541934e-08)
 
 [node name="Plane_005" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_003" index="0" unique_id=759813385]
 surface_material_override/0 = null
@@ -1195,13 +1196,13 @@ surface_material_override/0 = null
 surface_material_override/0 = null
 
 [node name="Bone_002" parent="Lumen/Lamp/Armature/Skeleton3D" index="1" unique_id=1724469861]
-transform = Transform3D(0.6152111, 0.7883623, -1.3078808e-07, -0.78836226, 0.6152112, 4.7366626e-08, 1.1780436e-07, 7.3967925e-08, 1, -0.039592672, 0.07264191, 5.5463762e-09)
+transform = Transform3D(0.61029243, 0.7921761, -1.3105756e-07, -0.792176, 0.6102926, 4.6125805e-08, 1.16523154e-07, 7.567047e-08, 1, -0.03964794, 0.07253506, 5.558888e-09)
 
 [node name="Plane_021__ccccct" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_002" index="0" unique_id=1380828355]
 surface_material_override/0 = null
 
 [node name="Bone_001" parent="Lumen/Lamp/Armature/Skeleton3D" index="2" unique_id=523072082]
-transform = Transform3D(0.46063358, -0.88759047, 6.092506e-08, 0.8875905, 0.4606335, -1.5253433e-07, 1.073239e-07, 1.2433892e-07, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
+transform = Transform3D(0.4582383, -0.88882947, 6.119396e-08, 0.8888295, 0.4582382, -1.5325743e-07, 1.0817833e-07, 1.2461942e-07, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
 
 [node name="Plane_0015" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_001" index="0" unique_id=2058840753]
 surface_material_override/0 = null
@@ -1213,7 +1214,7 @@ surface_material_override/0 = null
 surface_material_override/0 = null
 
 [node name="IK target_001" parent="Lumen/Lamp/Armature/Skeleton3D" index="3" unique_id=1746028866]
-transform = Transform3D(0.99474084, 0.10242462, -4.4545487e-09, -0.1024248, 0.9947406, -4.3473435e-08, -2.1643132e-11, 4.370108e-08, 1, -0.025485508, 0.22014897, 3.8649887e-08)
+transform = Transform3D(0.99448323, 0.10489753, -2.6547724e-09, -0.10489765, 0.9944831, -4.346353e-08, -1.9191475e-09, 4.3502325e-08, 1, -0.025556438, 0.2194559, 3.9115548e-08)
 
 [node name="Cylinder_010" parent="Lumen/Lamp/Armature/Skeleton3D/IK target_001" index="0" unique_id=1164976364]
 surface_material_override/0 = null
@@ -1225,7 +1226,7 @@ surface_material_override/0 = null
 light_energy = 1.0
 
 [node name="Bone_007" parent="Lumen/Lamp/Armature/Skeleton3D" index="4" unique_id=1461945621]
-transform = Transform3D(-0.72109926, -0.69283175, 1.1929107e-07, 0.69283175, -0.721099, -1.8038826e-07, 2.1099943e-07, -4.742922e-08, 1, 0.002885107, 0.20812783, -0.0017413722)
+transform = Transform3D(-0.72234404, -0.6915338, 1.1992458e-07, 0.6915339, -0.722344, -1.8461185e-07, 2.1429223e-07, -5.0421413e-08, 1, 0.0028357506, 0.2074858, -0.0017413717)
 
 [node name="Plane_0068" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_007" index="0" unique_id=2126021228]
 surface_material_override/0 = null
@@ -1240,7 +1241,7 @@ surface_material_override/0 = null
 surface_material_override/0 = null
 
 [node name="Bone_006" parent="Lumen/Lamp/Armature/Skeleton3D" index="5" unique_id=1194297156]
-transform = Transform3D(0.7763354, -0.63031983, 1.3789017e-07, 0.6303198, 0.77633536, -1.11315714e-07, -3.6884487e-08, 1.7333323e-07, 1, 0.050302245, 0.14972636, -0.0017413852)
+transform = Transform3D(0.7737052, -0.63354576, 1.3823602e-07, 0.63354576, 0.7737052, -1.15462484e-07, -3.380312e-08, 1.7691283e-07, 1, 0.05049557, 0.1492822, -0.001741385)
 
 [node name="Plane_004" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_006" index="0" unique_id=872425787]
 surface_material_override/0 = null
@@ -1249,13 +1250,13 @@ surface_material_override/0 = null
 surface_material_override/0 = null
 
 [node name="Bone_005" parent="Lumen/Lamp/Armature/Skeleton3D" index="6" unique_id=2057806019]
-transform = Transform3D(0.6384766, -0.7696412, 8.054523e-08, 0.76964116, 0.63847655, -2.871614e-07, 1.6958504e-07, 2.4533676e-07, 1, 0.057455905, 0.092486896, -2.3315622e-10)
+transform = Transform3D(0.63703585, -0.7708342, 8.1220115e-08, 0.7708342, 0.63703585, -2.9141515e-07, 1.7289267e-07, 2.4824917e-07, 1, 0.057756282, 0.092056215, -2.5001368e-10)
 
 [node name="Plane_0033" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_005" index="0" unique_id=518905]
 surface_material_override/0 = null
 
 [node name="Bone_004" parent="Lumen/Lamp/Armature/Skeleton3D" index="7" unique_id=1025984871]
-transform = Transform3D(0.5751171, 0.81807107, 1.0876418e-07, -0.818071, 0.57511705, -1.489385e-07, -1.8439444e-07, -3.319741e-09, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
+transform = Transform3D(0.56898504, 0.8223479, 1.10471646e-07, -0.8223478, 0.568985, -1.5340711e-07, -1.8901075e-07, -3.5597623e-09, 1, -3.450894e-24, 0.052094463, 8.271806e-25)
 
 [node name="Plane_002" parent="Lumen/Lamp/Armature/Skeleton3D/Bone_004" index="0" unique_id=889525070]
 surface_material_override/0 = null
@@ -1320,7 +1321,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014999628, 0, 0)
 mesh = SubResource("BoxMesh_l506t")
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1191414313 node_paths=PackedStringArray("target", "path")]
-transform = Transform3D(-0.99665225, -0.02493883, 0.07786247, -4.656613e-09, 0.95234305, 0.30502906, -0.08175886, 0.30400786, -0.94915485, -2.6722412, 1.3928078, -0.51259035)
+transform = Transform3D(-0.99665225, -0.024938826, 0.07786249, 4.656613e-09, 0.95234305, 0.3050291, -0.081758864, 0.3040079, -0.94915485, -2.6722412, 1.3928078, -0.51259035)
 current = true
 fov = 60.0
 script = ExtResource("16_4cqoh")
@@ -1389,6 +1390,9 @@ icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PanelContainer" unique_id=177801482]
 libraries/ = SubResource("AnimationLibrary_m4mm3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1767377480]
+stream = ExtResource("19_l506t")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Button" to="." method="_on_button_pressed"]

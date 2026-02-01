@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3bh5hint71lq"
+path="res://.godot/imported/AXIS1244_53_Fall Colours_30.mp3-9649c8f996fad13e2a37e3718fcb6448.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/AXIS1244_53_Fall Colours_30.mp3"
+dest_files=["res://.godot/imported/AXIS1244_53_Fall Colours_30.mp3-9649c8f996fad13e2a37e3718fcb6448.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
